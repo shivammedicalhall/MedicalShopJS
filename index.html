@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedicoShop - Medicine Inventory & Billing</title>
-    <!-- Bootstrap 5.3.8 CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
+    <title>MedicoShop - Medicine Inventory & Billing | Kolkata</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <!-- jsPDF 3.0.3 + AutoTable -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.3/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -19,21 +15,45 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 bg-dark text-white sidebar" id="sidebar">
-                <!-- Logo + Menu populated by JS -->
-            </div>
-            
+            <div class="col-md-3 col-lg-2 bg-dark text-white min-vh-100 p-3" id="sidebar"></div>
             <!-- Main Content -->
-            <div class="col-md-9 col-lg-10 p-4" id="main-content">
-                <!-- Login first, then dashboard etc. loaded by JS -->
+            <div class="col-md-9 col-lg-10 p-4" id="main-content"></div>
+        </div>
+    </div>
+
+    <!-- Medicine Modal -->
+    <div class="modal fade" id="medicineModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-teal text-white">
+                    <h5 class="modal-title" id="modalTitle">Add Medicine</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="medicineForm">
+                        <input type="hidden" id="medId">
+                        <div class="row g-3">
+                            <div class="col-md-6"><input type="text" id="medName" class="form-control" placeholder="Medicine Name" required></div>
+                            <div class="col-md-6"><input type="text" id="medBatch" class="form-control" placeholder="Batch Number" required></div>
+                            <div class="col-md-6"><input type="text" id="medMfr" class="form-control" placeholder="Manufacturer" required></div>
+                            <div class="col-md-3"><input type="date" id="medPurchaseDate" class="form-control" required></div>
+                            <div class="col-md-3"><input type="month" id="medExpiry" class="form-control" required></div>
+                            <div class="col-md-4"><input type="number" id="medMRP" class="form-control" placeholder="MRP ₹" step="0.01" required></div>
+                            <div class="col-md-4"><input type="number" id="medPurchasePrice" class="form-control" placeholder="Purchase Price ₹" step="0.01" required></div>
+                            <div class="col-md-4"><input type="number" id="medSellingPrice" class="form-control" placeholder="Selling Price ₹" step="0.01" required></div>
+                            <div class="col-12"><input type="number" id="medQty" class="form-control" placeholder="Current Stock Quantity" required></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-teal" onclick="saveMedicine()">Save Medicine</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- All Modals (Add Medicine, Billing, etc.) -->
-    <!-- Modals are created dynamically by JS for cleanliness -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
