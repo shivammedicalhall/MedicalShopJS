@@ -1,0 +1,52 @@
+:root {
+    --primary-teal: #0d9488;
+    --light-teal: #14b8a6;
+    --dark: #1f2937;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0f2f1 100%);
+}
+
+.sidebar {
+    min-height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.15);
+    transition: all 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(13, 148, 136, 0.25);
+}
+
+.btn-teal {
+    background-color: var(--primary-teal);
+    color: white;
+    border: none;
+}
+
+.btn-teal:hover {
+    background-color: #0b7a70;
+}
+
+.table th {
+    background-color: var(--primary-teal);
+    color: white;
+}
+
+.expiry-soon { background-color: #fef3c7 !important; }
+.low-stock { background-color: #fee2e2 !important; }
+
+.dark-mode {
+    background-color: #1f2937;
+    color: #e5e7eb;
+}
+.dark-mode .card { background-color: #374151; }
